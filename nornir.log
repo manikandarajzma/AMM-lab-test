@@ -1,0 +1,323 @@
+2023-11-27 11:26:47,438 -  nornir.core -     INFO -        run() - Running task 'load_variables' with args {} on 2 hosts
+2023-11-27 11:26:47,439 - nornir.core.task -    ERROR -      start() - Host 'acc1': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'variables/acc1.yaml'
+
+2023-11-27 11:26:47,439 - nornir.core.task -    ERROR -      start() - Host 'acc2': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'variables/acc2.yaml'
+
+2023-11-27 11:26:47,440 - nornir.core.task -    ERROR -      start() - Host 'acc1': task 'load_variables' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/runbook.py", line 13, in load_variables
+    data = task.run(task=load_yaml, file=f"variables/{ task.host }.yaml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2023-11-27 11:26:47,440 - nornir.core.task -    ERROR -      start() - Host 'acc2': task 'load_variables' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/runbook.py", line 13, in load_variables
+    data = task.run(task=load_yaml, file=f"variables/{ task.host }.yaml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2023-11-27 11:31:12,355 -  nornir.core -     INFO -        run() - Running task 'load_variables' with args {} on 2 hosts
+2023-11-27 11:31:15,878 - nornir.core.task -    ERROR -      start() - Host 'acc1-amm': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 1083, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 192.168.68.123:22
+
+
+Authentication failed.
+
+2023-11-27 11:31:15,878 - nornir.core.task -    ERROR -      start() - Host 'acc2-amm': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 1083, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 192.168.68.117:22
+
+
+Authentication failed.
+
+2023-11-27 11:31:15,878 - nornir.core.task -    ERROR -      start() - Host 'acc1-amm': task 'load_variables' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/runbook.py", line 15, in load_variables
+    random_config(task)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/runbook.py", line 23, in random_config
+    task.run(task=netmiko_send_config, config_commands=configuration)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_config (failed)
+
+
+2023-11-27 11:31:15,878 - nornir.core.task -    ERROR -      start() - Host 'acc2-amm': task 'load_variables' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/runbook.py", line 15, in load_variables
+    random_config(task)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/runbook.py", line 23, in random_config
+    task.run(task=netmiko_send_config, config_commands=configuration)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_config (failed)
+
+
+2023-11-27 11:35:46,820 -  nornir.core -     INFO -        run() - Running task 'load_variables' with args {} on 2 hosts
+2023-11-27 11:35:49,335 - nornir.core.task -    ERROR -      start() - Host 'acc2-amm': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 1083, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 192.168.68.117:22
+
+
+Authentication failed.
+
+2023-11-27 11:35:49,336 - nornir.core.task -    ERROR -      start() - Host 'acc1-amm': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/netmiko/base_connection.py", line 1083, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 192.168.68.123:22
+
+
+Authentication failed.
+
+2023-11-27 11:35:49,337 - nornir.core.task -    ERROR -      start() - Host 'acc2-amm': task 'load_variables' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/runbook.py", line 15, in load_variables
+    random_config(task)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/runbook.py", line 23, in random_config
+    task.run(task=netmiko_send_config, config_commands=configuration)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_config (failed)
+
+
+2023-11-27 11:35:49,337 - nornir.core.task -    ERROR -      start() - Host 'acc1-amm': task 'load_variables' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/runbook.py", line 15, in load_variables
+    random_config(task)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/runbook.py", line 23, in random_config
+    task.run(task=netmiko_send_config, config_commands=configuration)
+  File "/Users/mani.govindarajan/Library/CloudStorage/OneDrive-Technologent/coding/AMM-lab-test/AMM-lab-test/venv/lib/python3.11/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_config (failed)
+
+
+2023-11-27 11:42:13,055 -  nornir.core -     INFO -        run() - Running task 'load_variables' with args {} on 2 hosts
+2023-11-27 11:44:13,051 -  nornir.core -     INFO -        run() - Running task 'load_variables' with args {} on 2 hosts

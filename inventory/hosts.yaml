@@ -1,26 +1,20 @@
 ---
 
-sw4:
-    hostname: "192.168.68.119"
+acc1-amm:
+    hostname: "192.168.68.123"
     groups:
-        - ios
+        - access
     data:
         loopback: "1.1.1.1"          
 
-sw3:
-    hostname: "192.168.68.115"
+acc2-amm:
+    hostname: "192.168.68.117"
     groups:
-        - ios
+        - access
     data:
         loopback: "2.2.2.2"
 
 
-sw1-nxos:
-    hostname: "192.168.68.115"
-    groups:
-        - ios
-    data:
-        loopback: "3.3.3.3"
 
     
 
