@@ -1,0 +1,6 @@
+hostname {{ host.hostvars.host_name}}
+router ospf {{ host.hostvars['ospf']['ospf_proc_id'] }}
+router-id {{ host.hostvars['ospf']['ospf_router_id'] }}
+{% for n in host.hostvars['ospf']['ospf_networks'] %}
+network {{ n['ip'] }} {{ n['mask'] }} area {{ n['area'] }}
+{% endfor %}

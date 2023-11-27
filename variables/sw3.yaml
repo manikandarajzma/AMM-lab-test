@@ -1,0 +1,12 @@
+---
+host_name: 'sw3'
+ospf:
+    ospf_router_id: '2.2.2.2'
+    ospf_proc_id: '1' 
+    ospf_networks:
+        - ip: '10.0.0.0'
+          mask: '0.0.0.255'
+          area: '1'
+        - ip: '11.0.0.0'
+          mask: '0.0.0.255'
+          area: '2'
