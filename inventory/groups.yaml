@@ -3,9 +3,11 @@ access:
     password: 'Admin12345'
     platform: "ios"
     connection_options:
-      netmiko:
+      napalm:
         extras:
-          secret: Admin12345
+          optional_args:
+            fast_cli: False
+            secret: Admin12345
     data:
         ntp_server: "8.8.8.8"
         

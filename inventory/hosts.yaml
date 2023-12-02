@@ -5,7 +5,8 @@ acc1-amm:
     groups:
         - access
     data:
-        loopback: "1.1.1.1"          
+        loopback: "1.1.1.1"   
+        layer: access       
 
 acc2-amm:
     hostname: "192.168.68.117"
@@ -13,6 +14,7 @@ acc2-amm:
         - access
     data:
         loopback: "2.2.2.2"
+        layer: access  
 
 
 

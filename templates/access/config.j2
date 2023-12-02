@@ -1,0 +1,56 @@
+hostname {{host.hostvars.host_name}}
+!
+banner motd $
+===================================================================
+**** L E G A L   N O T I C E   -   Y O U   M U S T   R E A D ****
+===================================================================
+This is a private computer system containing information that is
+proprietary and confidential to the owner of the system. Only
+individuals or entities authorized by the owner of the system are
+allowed to access or use the system. Any unauthorized access or use
+of the system or information is strictly prohibited. All violators
+will be prosecuted to the fullest extent permitted by law.
+---------------------------------------
+Function:  {{host.hostvars.Function}}
+Location:   {{host.hostvars.Location}}
+Asset Num:  
+Managed By: NOC 
+===================================================================
+$
+!
+
+ip domain list amm.com
+
+{% for n in host.hostvars['vlans'] %}
+vlan {{ n['id'] }}
+name {{ n['name'] }}
+{% endfor %}
+{% for n in host.hostvars['interfaces'] %}
+interface {{ n['name'] }}
+description {{ n['description'] }}
+{% if n['state'] == 'enabled' %}
+ no shut
+{% else %} 
+shutdown
+{% endif %}
+{% if n['mode'] == 'trunk' %}
+switchport mode {{ n['mode']}}
+switchport trunk allowed vlan add {{ n['allowed_vlan']}}
+{% else %}
+switchport mode {{ n['mode'] }}
+switchport access vlan {{ n['access_vlan']}}
+spanning-tree portfast
+{% endif %}
+{% endfor %}
+!
+clock timezone PST -8 0
+
+line vty 0 4
+  exec-timeout 10
+  transport input ssh
+  transport output none
+!
+logging {{host.hostvars.syslog_server}}
+logging monitor 6
+no logging console
+!

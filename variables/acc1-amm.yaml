@@ -1,3 +1,59 @@
 ---
-host_name: 'acc1-amm'
+host_name: 'acc1-lb-amm'
+Function: 'Access switch 01'
+Location: 'Rack 1 U1'
+syslog_server: '1.1.1.1'
+vlans:
+    - id: '2'
+      name: 'test1'
+    - id: '3'
+      name: 'test2'
+    - id: '4'
+      name: 'test3'
+    - id: '255'
+      name: 'DO-NOT-USE'
+interfaces:
+        - name: 'Gi1/0/1'
+          description: "To host200"
+          state: 'disabled'
+          mode: 'access'
+          access_vlan: '255'
+        - name: 'Gi1/0/2'
+          description: "To cco2-amm"
+          state: 'enabled'
+          mode: 'trunk'
+          allowed_vlan: '2,3,4,5'
+        - name: 'Gi1/0/3'
+          description: "To host1"
+          state: 'enabled'
+          mode: 'access'
+          access_vlan: '2'
+        - name: 'Gi1/0/4'
+          description: "To host1"
+          state: 'enabled'
+          mode: 'access'
+          access_vlan: '3'
+        - name: 'Gi1/0/5'
+          description: "To host1"
+          state: 'enabled'
+          mode: 'access'
+          access_vlan: '4'
+        - name: 'Gi1/0/6'
+          description: "To host1"
+          state: 'enabled'
+          mode: 'access'
+          access_vlan: '4'
+        - name: 'Gi1/0/7'
+          description: "To host100"
+          state: 'enabled'
+          mode: 'access'
+          access_vlan: '4'
+        - name: 'Gi1/0/8'
+          description: "To host100"
+          state: 'enabled'
+          mode: 'access'
+          access_vlan: '5'
+        
+         
+
 

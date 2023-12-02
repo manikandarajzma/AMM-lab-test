@@ -2,3 +2,4 @@ nornir
 nornir_netmiko
 nornir_utils
 nornir_jinja2
+nornir_napalm
